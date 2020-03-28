@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+Modal  locataire
+<div class="modal fade" id="exampleModal-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-danger text-gray-100" >
+        <h5 class="modal-title text-center" id="exampleModalLabel">Formulaire d'inscription</h5>
+        <button type="button" class="close" data-dismiss="modal" id="exampleModalLabel" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        
+		 <nav>
+		  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+		    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Locataire</a>
+		    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Information sur le(s) Garant(s)</a>
+		    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Documents</a>
+		  </div>
+		</nav>
+		
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+  <br>
+  <div class="container">
+  <form>
+  type de locataire
+     
+		<div class="card">
+		  <div class="card-header">
+		     <label for="inputState">Type de Locataire</label>
+		  </div>
+		  <div class="card-body">
+		  	<div class="form-group col-md-12">
+	          <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+	          	<option selected>choix...</option>
+		        <option data-toggle="modal" data-target="#partModalCenter-modal-lg" value="1">Particulier</option>
+		        <option data-toggle="modal" data-target="#exampleModalCenter-modal-lg" value="2">Sociéte</option>
+		        <option value="2">Autre...</option>
+		      </select>
+	         </div>
+		  </div>
+		</div>
+		
+
+
+</div>  
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+  <br>
+  <p>
+  <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Ajoutez un garant
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+          <form action="">
+         les informations personnelles 
+ 	 
+		<div class="card">
+		  <div class="card-header">
+		      <label for="inputState">Information personnelle</label>
+		  </div>
+		  <div class="card-body">
+		  <div class="form-row">
+		     <div class="form-group col-md-6">
+			    <label for="inputEmail4">Nom</label>
+			    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom...">
+			  </div>
+			  <div class="form-group col-md-6">
+			    <label for="inputPassword4">Prénom</label>
+			    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Prenom...">
+			  </div>
+			  </div>
+		  </div>
+		</div>
+		Adresse Professionnelle 
+		<div class="card">
+		  <div class="card-header">
+		  <label for="inputState">Adresse Professionelle</label>
+		  </div>
+		  <div class="card-body">
+		  
+	        <div class="form-row">
+		     <div class="form-group col-md-6">
+			    <label for="inputEmail5">Ville</label>
+		          <select class="custom-select mr-sm-2" id="inputEmail5">
+			        <option selected>Rabat</option>
+			        <option value="1">Sale</option>
+			        <option value="2">Autre...</option>
+			      </select>
+			  </div>
+			  <div class="form-group col-md-6">
+			    <label for="inputPassword4">Code Postal</label>
+			    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+			  </div>
+		 </div>
+	       
+		  <div class="form-row">
+		     <div class="form-group col-md-6">
+			    <label for="inputEmail4">Adresse</label>
+			    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+			  </div>
+			  <div class="form-group col-md-6">
+			    <label for="inputPassword4"> Adresse 2</label>
+			    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+			  </div>
+		 </div>
+		  </div>
+		</div>
+	  
+      <div class="modal-footer">
+      data-dismiss="modal" 
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal-modal-lg">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+   </form> 
+  </div>
+</div>
+  	
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+  page 3
+  </div>
+</div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+      
+    </div>
+  </div>
+ </div>
+
+
+ formulaire pour la particulier
+
+  <div class="modal fade" id="partModalCenter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header bg-gradient-danger text-gray-100">
+		        <h5 class="modal-title" id="partModalCenterTitle">Particulier</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+		        </button>
+	      </div>
+	      
+		      <div class="modal-body">
+		      
+			      <form action="/" method="get">
+			         les informations personnelles 
+			 	 
+						<div class="card">
+						  <div class="card-header">
+						      <label for="inputState">Information personnelle</label>
+						  </div>
+						  <div class="card-body">
+						  <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail4">Nom</label>
+							    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom...">
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Prénom</label>
+							    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Prenom...">
+							  </div>
+							  </div>
+						  </div>
+						</div>
+						Adresse Professionnelle 
+						<div class="card">
+						  <div class="card-header">
+						  <label for="inputState">Adresse Professionelle</label>
+						  </div>
+						  <div class="card-body">
+						  
+					        <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail5">Ville</label>
+						          <select class="custom-select mr-sm-2" id="inputEmail5">
+							        <option selected>Rabat</option>
+							        <option value="1">Sale</option>
+							        <option value="2">Autre...</option>
+							      </select>
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Code Postal</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+							  </div>
+						 </div>
+					       
+						  <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail4">Adresse</label>
+							    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4"> Adresse 2</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+							  </div>
+						 </div>
+						  </div>
+						</div>
+					  
+				        <div class="modal-footer">
+				        <button type="reset" class="btn btn-secondary">Annuler</button>
+				        <button type="submit" class="btn btn-primary">Save changes</button>
+				      </div>
+			      </form>   
+		      </div>
+	     </div>
+	 </div>      
+  </div>
+
+ formulaire pour la société
+
+<div class="modal fade" id="exampleModalCenter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-danger text-gray-100">
+        <h5 class="modal-title" id="exampleModalCenterTitle">SOCIETE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="">
+	      
+			<div class="card">
+				  <div class="card-header">
+				      <label for="inputState">Information sociéte</label>
+				  </div>
+				  <div class="card-body">
+				  <div class="form-row">
+				     <div class="form-group col-md-6">
+					    <label for="inputEmail4">Sociéte</label>
+					    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom de votre societe">
+					  </div>
+					  <div class="form-group col-md-6">
+					    <label for="inputPassword4">Profession Exercée</label>
+					    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Profession...">
+					  </div>
+					  </div>
+				  </div>
+			</div>
+			Adresse Professionnelle 
+			<div class="card">
+			  <div class="card-header">
+			  		<label for="inputState">Adresse Professionelle</label>
+			  </div>
+			  <div class="card-body">
+			      <div class="form-row">
+					     <div class="form-group col-md-6">
+						      <label for="inputEmail5">Ville</label>
+					          <select class="custom-select mr-sm-2" id="inputEmail5">
+						        <option selected>Rabat</option>
+						        <option value="1">Sale</option>
+						        <option value="2">Autre...</option>
+						      </select>
+						  </div>
+						  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Code Postal</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+						  </div>
+				    </div>
+		       
+				  <div class="form-row">
+				     <div class="form-group col-md-6">
+					    <label for="inputEmail4">Adresse</label>
+					    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+					  </div>
+					 <div class="form-group col-md-6">
+					    <label for="inputPassword4"> Adresse 2</label>
+					    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+					  </div>
+				  </div>
+			  </div>
+			</div>
+
+	        <div class="modal-footer">
+	        	<a href="#exampleModal-modal-lg" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModal-modal-lg">Close1</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+	        </div>
+      
+   </form>   
+    </div>
+  </div>
+</div>      
+ </div>
+ </div>
+
+Modal  proprietaire
+<div class="modal fade" id="proprietaireModal-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-danger text-gray-100" >
+        <h5 class="modal-title text-center" id="exampleModalLabel">Formulaire d'inscription</h5>
+        <button type="button" class="close" data-dismiss="modal" id="exampleModalLabel" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+		  <li class="nav-item">
+		    <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Informations Generales</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Information Complementaire</a>
+		  </li>
+		  <li class="nav-item">
+		    <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false">Documents</a>
+		  </li>
+		</ul>
+		<div class="tab-content" id="pills-tabContent">
+		  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+		  
+		  	<div class="container-fluid">
+        	  <div class="row">
+        		<div class="col-lg-12">
+        		   <div class="card mb-4 py-3 border-left-danger">
+	                 <div class="card-body">
+	                 	contenu
+	                 	
+	                 	 <form action="">
+         les informations personnelles 
+ 	 
+							<div class="card">
+							  <div class="card-header">
+							      <label for="inputState">Information personnelle</label>
+							  </div>
+							  <div class="card-body">
+							  <div class="form-row">
+							     <div class="form-group col-md-6">
+								    <label for="inputEmail4">Nom</label>
+								    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom...">
+								  </div>
+								  <div class="form-group col-md-6">
+								    <label for="inputPassword4">Prénom</label>
+								    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Prenom...">
+								  </div>
+								  </div>
+							  </div>
+							</div>
+							Adresse Professionnelle 
+							<div class="card">
+							  <div class="card-header">
+							  <label for="inputState">Adresse Professionelle</label>
+							  </div>
+							  <div class="card-body">
+							  
+						        <div class="form-row">
+							     <div class="form-group col-md-6">
+								    <label for="inputEmail5">Ville</label>
+							          <select class="custom-select mr-sm-2" id="inputEmail5">
+								        <option selected>Rabat</option>
+								        <option value="1">Sale</option>
+								        <option value="2">Autre...</option>
+								      </select>
+								  </div>
+								  <div class="form-group col-md-6">
+								    <label for="inputPassword4">Code Postal</label>
+								    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+								  </div>
+							 </div>
+						       
+							  <div class="form-row">
+							     <div class="form-group col-md-6">
+								    <label for="inputEmail4">Adresse</label>
+								    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+								  </div>
+								  <div class="form-group col-md-6">
+								    <label for="inputPassword4"> Adresse 2</label>
+								    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+								  </div>
+							 </div>
+							  </div>
+							</div>
+						  
+					      <div class="modal-footer">
+					      data-dismiss="modal" 
+					        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#exampleModal-modal-lg">Close</button>
+					        <button type="button" class="btn btn-primary">Save changes</button>
+					      </div>
+  					  </form> 			
+	                 	
+	                 	
+	                 </div>
+              		</div>
+        		</div>
+        	  </div>
+            </div>
+		  
+		  </div>
+		  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+		  
+		  	<div class="container-fluid">
+        	  <div class="row">
+        		<div class="col-lg-12">
+        		   <div class="card mb-4 py-3 border-bottom-danger">
+	                 <div class="card-body">
+	                 				 Archivage des documents
+	                 </div>
+              		</div>
+        		</div>
+        	  </div>
+            </div>
+		  		
+		  </div>
+		  <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+
+			<div class="container-fluid">
+        	  <div class="row">
+        		<div class="col-lg-12">
+        		   <div class="card mb-4 py-3 border-bottom-danger">
+	                 <div class="card-body">
+	                 				 Archivage des documents
+	                 </div>
+              		</div>
+        		</div>
+        	  </div>
+            </div>
+		  
+		  </div>
+		</div>
+    </div>
+  </div>
+ </div>
+
+
+ formulaire pour la particulier
+
+  <div class="modal fade" id="partModalCenter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header bg-gradient-danger text-gray-100">
+		        <h5 class="modal-title" id="partModalCenterTitle">Particulier</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          	<span aria-hidden="true">&times;</span>
+		        </button>
+	      </div>
+	      
+		      <div class="modal-body">
+		      
+			      <form action="/" method="get">
+			         les informations personnelles 
+			 	 
+						<div class="card">
+						  <div class="card-header">
+						      <label for="inputState">Information personnelle</label>
+						  </div>
+						  <div class="card-body">
+						  <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail4">Nom</label>
+							    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom...">
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Prénom</label>
+							    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Prenom...">
+							  </div>
+							  </div>
+						  </div>
+						</div>
+						Adresse Professionnelle 
+						<div class="card">
+						  <div class="card-header">
+						  <label for="inputState">Adresse Professionelle</label>
+						  </div>
+						  <div class="card-body">
+						  
+					        <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail5">Ville</label>
+						          <select class="custom-select mr-sm-2" id="inputEmail5">
+							        <option selected>Rabat</option>
+							        <option value="1">Sale</option>
+							        <option value="2">Autre...</option>
+							      </select>
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Code Postal</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+							  </div>
+						 </div>
+					       
+						  <div class="form-row">
+						     <div class="form-group col-md-6">
+							    <label for="inputEmail4">Adresse</label>
+							    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+							  </div>
+							  <div class="form-group col-md-6">
+							    <label for="inputPassword4"> Adresse 2</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+							  </div>
+						 </div>
+						  </div>
+						</div>
+					  
+				        <div class="modal-footer">
+				        <button type="reset" class="btn btn-secondary">Annuler</button>
+				        <button type="submit" class="btn btn-primary">Save changes</button>
+				      </div>
+			      </form>   
+		      </div>
+	     </div>
+	 </div>      
+  </div>
+
+ formulaire pour la société
+
+<div class="modal fade" id="exampleModalCenter-modal-lg" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header bg-gradient-danger text-gray-100">
+        <h5 class="modal-title" id="exampleModalCenterTitle">SOCIETE</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form action="">
+	      
+			<div class="card">
+				  <div class="card-header">
+				      <label for="inputState">Information sociéte</label>
+				  </div>
+				  <div class="card-body">
+				  <div class="form-row">
+				     <div class="form-group col-md-6">
+					    <label for="inputEmail4">Sociéte</label>
+					    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Nom de votre societe">
+					  </div>
+					  <div class="form-group col-md-6">
+					    <label for="inputPassword4">Profession Exercée</label>
+					    <input type="password" class="form-control" id="inputPassword4" name="prenom" placeholder="Profession...">
+					  </div>
+					  </div>
+				  </div>
+			</div>
+			Adresse Professionnelle 
+			<div class="card">
+			  <div class="card-header">
+			  		<label for="inputState">Adresse Professionelle</label>
+			  </div>
+			  <div class="card-body">
+			      <div class="form-row">
+					     <div class="form-group col-md-6">
+						      <label for="inputEmail5">Ville</label>
+					          <select class="custom-select mr-sm-2" id="inputEmail5">
+						        <option selected>Rabat</option>
+						        <option value="1">Sale</option>
+						        <option value="2">Autre...</option>
+						      </select>
+						  </div>
+						  <div class="form-group col-md-6">
+							    <label for="inputPassword4">Code Postal</label>
+							    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Code postal...">
+						  </div>
+				    </div>
+		       
+				  <div class="form-row">
+				     <div class="form-group col-md-6">
+					    <label for="inputEmail4">Adresse</label>
+					    <input type="text" class="form-control" id="inputEmail4" name="nom" placeholder="Adresse professionnelle">
+					  </div>
+					 <div class="form-group col-md-6">
+					    <label for="inputPassword4"> Adresse 2</label>
+					    <input type="text" class="form-control" id="inputPassword4" name="prenom" placeholder="Adresse professionnelle">
+					  </div>
+				  </div>
+			  </div>
+			</div>
+
+	        <div class="modal-footer">
+	        	<a href="#exampleModal-modal-lg" class="btn btn-primary btn-lg active" role="button" aria-pressed="true" data-toggle="modal" data-target="#exampleModal-modal-lg">Close1</a>
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+		        <button type="button" class="btn btn-primary">Save changes</button>
+	        </div>
+      
+   </form>   
+    </div>
+  </div>
+</div>      
+ </div>
+ </div>
+
+
+</html>
+</html>

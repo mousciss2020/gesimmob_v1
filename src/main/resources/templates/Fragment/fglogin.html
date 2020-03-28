@@ -1,0 +1,97 @@
+<div th:fragment="login">
+<body>
+     <div class="image-container set-full-height" style="background-image: url('assets/img/bg.jpg')">
+
+	<!--  Made With Get Shit Done Kit  -->
+		<a th:href="@{/registre}" class="made-with-mk">
+			<div class="brand"><font color="">CREEZ</font></div>
+			<div class="made-with"><b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;UN </b><strong><font color=""><b>COMPTE</b></font></strong></div>
+		</a>
+
+    <!--   Big container   -->
+         <div class="container">
+             <div class="row">
+                 <div class="col-sm-8 col-sm-offset-2">
+
+            <!--      Wizard container        -->
+                     <div class="wizard-container">
+
+                         <div class="card wizard-card" data-color="red" id="wizardProfile">
+                              <form th:action="@{/login}" method="post">
+                <!--        You can switch ' data-color="orange" '  with one of the next bright colors: "blue", "green", "orange", "red"          -->
+
+                    	            <div class="wizard-header">
+                                        <h3>
+                        	                <b>GESTION</b> DES PATRIMOINES IMMOBILIER  <br>
+                                            <!--   <small>This information will let us know more about you.</small> -->
+                        	             </h3>
+                    	            </div>
+
+                                     <div class="wizard-navigation">
+                                          <ul>
+                                               <li><a href="#about" data-toggle="tab">.</a></li>
+                                          </ul>
+                                     </div>
+					
+                                     <div class="tab-pane" id="about">
+                                          <div class="row">
+                                               <h4 class="info-text"></h4>
+                                                <div class="col-sm-4 col-sm-offset-1">
+                                                     <div class="picture-container">
+                                                          <div class="picture">
+                                                              <img src="assets/img/default-avatar.png" class="picture-src" id="wizardPicturePreview" title=""/>
+                                                              <input type="file" id="wizard-picture">
+                                                          </div>
+                                                          <h6>Administrateur</h6>
+                                                     </div>
+                                              </div>
+                                                <div class="col-sm-6">
+                                                  <div class="form-group">
+                                                       <label>Login <small></small></label>
+                                                       <input name="username" type="text" class="form-control" placeholder="login...">
+                                                  </div>
+                                                  <div class="form-group">
+                                                        <label>Password <small></small></label>
+                                                        <input name="password" type="password" class="form-control" placeholder="password...">
+                                                  </div>
+                                      
+                                                  <div class="form-row">
+										               <div class="form-group col-md-6">
+                                                            <input type='submit' class='btn btn-finish btn-fill btn-danger btn-wd btn-sm' name='finish' value='Connexion' />
+                                                       </div>
+										                <div class="form-group col-md-6">
+										                     <input type='reset' class='btn btn-finish btn-fill btn-danger btn-wd btn-sm' name='finish' value='Annuler' />
+                                                        </div>
+										          </div><br>
+										 
+
+                                              </div>
+        
+                                           </div>
+                                     </div>
+                              </form>
+                    
+                              <div class="container-fluid">
+                    	           <div class="row">
+                    		            <div class="col-lg-6 col-lg-offset-5">
+                    			            <div class="alert alert-danger" role="alert" th:if="${param.error}">
+                                              Login ou password incorrect!
+                                            </div>
+								
+                                            <div class="alert alert-success" role="alert" th:if="${param.logout}">
+                                              Vous etes deconnecte!
+                                            </div>
+                    		            </div>
+                    	           </div>
+                              </div>
+                    
+                          </div>
+                      </div> <!-- wizard container -->
+                 </div>
+             </div><!-- end row -->
+         </div> <!--  big container -->
+
+     </div>
+
+</body>
+</div>

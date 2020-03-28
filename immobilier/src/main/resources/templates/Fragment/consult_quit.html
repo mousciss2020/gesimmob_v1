@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <!-- ======================== -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./asset/img/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files 
+  <link href="./asset/css/material-kit.css?v=2.0.5" rel="stylesheet" />-->
+  <!-- CSS Just for demo purpose, don't include it in your project 
+  <link href="./asset/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	<div th:replace="Fragment/sidebar :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <div th:replace="Fragment/topbar :: topbar"></div>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        	<div class="row">
+        		<div class="col-lg-12">
+        			<div class="card mb-4 py-3 border-bottom-danger">
+	                <div class="card-body">
+	<!-- debut -->                
+	<div class="section section-tabs">
+      <div class="container">
+        <!--                nav tabs	             -->
+        <div id="nav-tabs">
+          <!-- <h3>Navigation Tabs</h3> -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3>
+                <small></small>
+              </h3>
+              <!-- Tabs with icons on Card -->
+              <div class="card card-nav-tabs">
+                <div class="card-header card-header-primary">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                         <a class="nav-link active d-none d-sm-inline-block btn btn-sm  shadow-sm " href="#profile" data-toggle="tab" role="button">
+                             <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><sub><i class="material-icons">face</i></sub> Profile</button>
+                          </a> 
+                          		
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#messages" data-toggle="tab" role="button">
+                            <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><sub><i class="material-icons">chat</i></sub> Messages</button>
+                          </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#settings" data-toggle="tab" role="button">
+                            <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"><sub><i class="material-icons">build</i></sub> Settings</button>
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <div class="tab-content text-center">
+                    <div class="tab-pane active" id="profile">
+                      <p> I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. </p>
+                    </div>
+                    <div class="tab-pane" id="messages">
+                      <p> I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus. I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at.</p>
+                    </div>
+                    <div class="tab-pane" id="settings">
+                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Tabs with icons on Card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	                  
+	                  <div th:replace="Fragment/logoutModal :: modal"></div>
+	                </div>
+              </div>
+        		</div>
+        	</div>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="bootstrap/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+  <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+  
+ 
+</body>
+
+</html>

@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <!-- ======================== -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./asset/img/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files 
+  <link href="./asset/css/material-kit.css?v=2.0.5" rel="stylesheet" />-->
+  <!-- CSS Just for demo purpose, don't include it in your project 
+  <link href="./asset/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	<div th:replace="Fragment/sidebar :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <div th:replace="Fragment/topbar :: topbar"></div>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        	<div class="row">
+        		<div class="col-lg-12">
+        			<div class="card mb-4 py-3 border-bottom-danger">
+	                <div class="card-body">
+	<!-- debut -->                
+	<div class="section section-tabs">
+      <div class="container">
+        <!--                nav tabs	             -->
+        <div id="nav-tabs">
+          <!-- <h3>Navigation Tabs</h3> -->
+          <div class="row">
+            <div class="col-md-12">
+              <h2>
+                <small><b>Nouvelle location</b></small>
+              </h2>
+              <!-- Tabs with icons on Card -->
+              <div class="card card-nav-tabs">
+                <div class="card-header card-header-primary">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                      <ul class="nav nav-tabs" data-tabs="tabs">
+                        <li class="nav-item">
+                         <a class="nav-link active d-none d-sm-inline-block btn btn-sm  shadow-sm " href="#profile" data-toggle="tab" role="button">
+                             <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Non location</button>
+                          </a> 
+                          		
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#messages" data-toggle="tab" role="button">
+                            <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Location</button>
+                          </a>
+                        </li>
+                        <li class="nav-item ">
+                          <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#reservation" data-toggle="tab" role="button">
+                            <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Reservation</button>
+                          </a>
+                        </li>
+                        <!--<li class="nav-item">
+                          <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#settings" data-toggle="tab" role="button">
+                            <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Document</button>
+                          </a>
+                        </li>-->
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  <div class="tab-content text-center">
+					  <!-- =========== page 1 === locataire ============ -->
+                    <div class="tab-pane active" id="profile">
+                      
+                      	<div class="card">
+						
+								<!-- <div class="card-header">
+									<label for="inputState">Informations générales</label>
+								 </div> -->
+						      
+								<div class="card-header">
+									  <label for="inputState">Les biens non en location</label>
+								  </div>
+								  
+						         <table class="table table-hover">
+									  <thead class="thead-light">
+									    <tr>
+									      <th scope="col">ID</th>
+									      <th scope="col">Type Bien</th>
+									      <th scope="col">Ville</th>
+									      <th scope="col">Adresse</th>
+									      <th scope="col">Prix</th>
+									      <th scope="col">Etat</th>
+									      <th scope="col">Parametre</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									  	<tr th:each="b:${allBien}">
+									  		<td th:text="${b.idBien}"></td>
+									  		<td th:text="${b.typeBient}"></td>
+									  		<td th:text="${b.ville}"></td>
+									  		<td th:text="${b.adresse}"></td>
+									  		<td th:text="${b.prix_Bien}"></td>
+									  		<td th:text="${b.etatBien}"></td>
+									  		<td>
+									  			<ul class="nav nav-tabs">
+												  <li class="nav-item dropdown">
+													  <a class="nav-link dropdown-toggle d-none d-sm-inline-block btn btn-sm  shadow-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+														  <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Options</button>
+													  </a>
+													  <div class="dropdown-menu">
+													 <!--  data-toggle="modal" data-target="#exampleModalCenter2" -->
+														  <a  class="dropdown-item" th:href="@{/loue(IdBien=${b.idBien})}">Location</a>
+														  <a  class="dropdown-item" th:href="@{/reserve(IdBien=${b.IdBien})}">Reservation</a>
+														  <a  class="dropdown-item" th:href="@{/edite(IdBien=${b.IdBien})}">Edition</a>
+														  <a onclick = "return confirm('Etes-vous sur de vouloir supprimer?')" class="dropdown-item" th:href="@{/supprimer(IdBien=${b.IdBien})}">Supprimé</a>
+														  <a class="dropdown-item" data-toggle="modal" data-target="#exampleModalCenter1"  th:href="@{/showPhoto}">Ajouter photo</a>
+														  <a  class="dropdown-item" th:href="@{/showPhoto(identBien=${b.identBien})}">Voir photo</a>
+													  </div>
+												  </li>
+											  </ul>
+									  		
+									  </tbody>
+								</table>
+							</div><br>	
+                      
+                    </div>
+					  <!-- =========== page 2 === documents ============ -->
+					  <div class="tab-pane" id="messages">
+						  <div class="tab-pane" id="messages">
+
+							  <div class="card">
+
+								  <div class="card-header">
+									  <label for="inputState">Les biens en location</label>
+								  </div>
+
+								  
+
+									  <table class="table table-hover">
+									  <thead class="thead-light">
+									    <tr>
+									      <th scope="col">ID</th>
+									      <th scope="col">Type Bien</th>
+									      <th scope="col">Ville</th>
+									      <th scope="col">Adresse</th>
+									      <th scope="col">Prix</th>
+									      <th scope="col">Etat</th>
+									      <th scope="col">Parametre</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									  	<tr th:each="b:${allBienLoue}">
+									  		<td th:text="${b.idBien}"></td>
+									  		<td th:text="${b.typeBient}"></td>
+									  		<td th:text="${b.ville}"></td>
+									  		<td th:text="${b.adresse}"></td>
+									  		<td th:text="${b.prix_Bien}"></td>
+									  		<td th:text="${b.etatBien}"></td>
+									  		<td>
+									  			<ul class="nav nav-tabs">
+												  <li class="nav-item dropdown">
+													  <a class="nav-link dropdown-toggle d-none d-sm-inline-block btn btn-sm  shadow-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+														  <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Options</button>
+													  </a>
+													  <div class="dropdown-menu">
+														  <a data-toggle="modal" data-target="#exampleModalCenter1" class="dropdown-item" th:href="@{/contrat(IdBien=${b.IdBien})}">Generer contrat</a>
+														  <a data-toggle="modal" data-target="#exampleModalCenter1" class="dropdown-item" th:href="@{/quittance(IdBien=${b.IdBien})}">Generer quittance</a>
+														  <a class="dropdown-item" th:href="@{/resiliation(IdBien=${b.IdBien})}">Resiliation</a>
+														  <a  class="dropdown-item" th:href="@{/edite(idBien=${b.idBien})}">Edition de contrat</a>
+														  <a onclick = "return confirm('Etes-vous sur de vouloir supprimer?')" class="dropdown-item" th:href="@{/suppLoc(IdBien=${b.IdBien})}">Supprimé</a>
+													  </div>
+												  </li>
+											  </ul>
+									  		
+									  </tbody>
+								</table>
+
+								  
+								  <br><br><br>
+							  </div>
+                    </div>
+                    <!--<div class="tab-pane" id="settings">
+                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                    </div>-->
+                  </div>
+                  <!-- ========= page 3 =================== -->
+                  	<div class="tab-pane" id="reservation">
+						  <div class="tab-pane" id="messages">
+
+							  <div class="card">
+
+								  <div class="card-header">
+									  <label for="inputState">Les biens reservés</label>
+								  </div>
+
+								 
+
+					<table class="table table-hover">
+									  <thead class="thead-light">
+									    <tr>
+									      <th scope="col">ID</th>
+									      <th scope="col">Type Bien</th>
+									      <th scope="col">Ville</th>
+									      <th scope="col">Adresse</th>
+									      <th scope="col">Prix</th>
+									      <th scope="col">Etat</th>
+									      <th scope="col">Parametre</th>
+									    </tr>
+									  </thead>
+									  <tbody>
+									  	<tr th:each="b:${allBienResrvation}">
+									  		<td th:text="${b.idBien}"></td>
+									  		<td th:text="${b.typeBient}"></td>
+									  		<td th:text="${b.ville}"></td>
+									  		<td th:text="${b.adresse}"></td>
+									  		<td th:text="${b.prix_Bien}"></td>
+									  		<td th:text="${b.etatBien}"></td>
+									  		<td>
+									  			<ul class="nav nav-tabs">
+												  <li class="nav-item dropdown">
+													  <a class="nav-link dropdown-toggle d-none d-sm-inline-block btn btn-sm  shadow-sm" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+														  <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Options</button>
+													  </a>
+													  <div class="dropdown-menu">
+														  <a data-toggle="modal" data-target="#exampleModalCenter1" class="dropdown-item" th:href="@{/_locationt(id=${b.idBien})}">Generer Contrat</a>
+														  <a data-toggle="modal" data-target="#exampleModalCenter1" class="dropdown-item" th:href="@{/_locationt?reserve(id=${b.idBien})}">Resilier Contrat</a>
+														  <a  class="dropdown-item" th:href="@{/edite(IdBien=${b.IdBien})}">Edité</a>
+														  <a onclick = "return confirm('Etes-vous sur de vouloir supprimer?')" class="dropdown-item" th:href="@{/suppLoc(IdBien=${b.IdBien})}">Supprimé</a>
+													  </div>
+												  </li>
+											  </ul>
+									  		
+									  </tbody>
+								</table>
+
+								 
+								  <br><br><br>
+							  </div>
+                    </div>
+                    <!--<div class="tab-pane" id="settings">
+                      <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+                    </div>-->
+                  </div>
+                  
+                  
+                  
+                </div>
+              </div>
+              <!-- End Tabs with icons on Card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	                  
+	                  <div th:replace="Fragment/logoutModal :: modal"></div>
+	                </div>
+              </div>
+        		</div>
+        	</div>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      </div>
+      <!-- End of Main Content -->
+      <!-- ============================= confirmation ======================= -->
+  
+		  <!-- ================= modal quittance ================= -->
+		  <div class="modal fade" id="exampleModalCenter1" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle1" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					  <div class="modal-header bg-gradient-danger text-gray-100 text-center">
+						  <h5 class="modal-title" id="exampleModalCenterTitle">Ajouter des photos</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+						  </button>
+					  </div>
+					  <div class="modal-body"><br>
+						  <form th:action="@{/addPhoto}" method="post" class="needs-validation" novalidate enctype="multipart/form-data">
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <div class="input-group">
+										  <div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Identifiant du bien</span>
+										  </div>
+										  <select  name="identBien"  class="custom-select mr-sm-2" id="inputEmail5" required>
+										  		<option th:each="p : ${biens}" th:value="${p.identBien}" th:text="${p.identBien}"></option>
+											  <!-- <option selected>Contrat de bail</option> -->
+											 <!-- <option value="1">Revision du loyer</option>
+											  <option value="2">Quittance du loyer</option>
+											  <option value="3">...</option>-->
+										  </select>
+										  <div class="invalid-feedback">
+											  Please choose a username.
+										  </div>
+									  </div>
+								  </div>
+							  </div><br>
+							  <!-- <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlTextarea1">Description du document</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+								  </div>
+							  </div><br> -->
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlFile1">Ajoutez document</label>
+									  <input type="file" class="form-control-file" id="exampleFormControlFile1" name="fic" required>
+								  </div>
+							  </div>
+
+							  <div class="modal-footer">
+								  <div class="form-group">
+
+								  </div>
+								  <!-- <button class="btn btn-primary" type="submit">Enregistrer</button> -->
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+									  <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+								  </button></p>
+
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+									  <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+								  </button></p>
+							  </div>
+						</form>
+					  </div>
+
+				  </div>
+			  </div>
+		  </div>
+		
+		<!-- ================= modal quittance ================= -->
+		  <div class="modal fade" id="exampleModalCenter3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle3" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					  <div class="modal-header bg-gradient-danger text-gray-100 text-center">
+						  <h5 class="modal-title" id="exampleModalCenterTitle">Nouvelle quittance</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+						  </button>
+					  </div>
+					  <div class="modal-body"><br>
+						  <form action="" method="get" class="needs-validation" novalidate>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <div class="input-group">
+										  <div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type document</span>
+										  </div>
+										  <select class="custom-select mr-sm-2" id="inputEmail5" required>
+											  <option selected>Contrat de bail</option>
+											 <!-- <option value="1">Revision du loyer</option>
+											  <option value="2">Quittance du loyer</option>
+											  <option value="3">...</option>-->
+										  </select>
+										  <div class="invalid-feedback">
+											  Please choose a username.
+										  </div>
+									  </div>
+								  </div>
+							  </div><br>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlTextarea1">Description du document</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+								  </div>
+							  </div><br>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlFile1">Ajoutez document</label>
+									  <input type="file" class="form-control-file" id="exampleFormControlFile1" required>
+								  </div>
+							  </div>
+
+							  <div class="modal-footer">
+								  <div class="form-group">
+
+								  </div>
+								  <!-- <button class="btn btn-primary" type="submit">Enregistrer</button> -->
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+									  <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+								  </button></p>
+
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+									  <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+								  </button></p>
+							  </div>
+						</form>
+					  </div>
+
+				  </div>
+			  </div>
+		  </div>
+		
+		
+		  <!-- ================= modal contrat de bail ============= -->
+		  <div class="modal fade" id="exampleModalCenter2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle2" aria-hidden="true">
+			  <div class="modal-dialog modal-dialog-centered" role="document">
+				  <div class="modal-content">
+					  <div class="modal-header bg-gradient-danger text-gray-100 text-center">
+						  <h5 class="modal-title" id="exampleModalCenterTitle">Nouvel contrat de bail </h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							  <span aria-hidden="true">&times;</span>
+						  </button>
+					  </div>
+					  <div class="modal-body"><br>
+						  <form action=""  method="get" class="needs-validation" novalidate>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <div class="input-group">
+										  <div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type</span>
+										  </div>
+										  <select class="custom-select mr-sm-2" id="inputEmail5" required>
+											  <option selected>Contrat de bail</option>
+											  <!--<option value="1">Revision du loyer</option>
+											  <option value="2">Quittance du loyer</option>
+											  <option value="3">...</option>-->
+										  </select>
+										  <div class="invalid-feedback">
+											  Please choose a username.
+										  </div>
+									  </div>
+								  </div>
+							  </div><br>
+							  <div class="form-row">
+								  <div class="col-md-6 mb-6">
+									  <div class="input-group">
+										  <div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroupPrepend">Date debut</span>
+										  </div>
+										  <input type="date" class="form-control" id="validationCustomUsername" placeholder="" aria-describedby="inputGroupPrepend" required>
+										  <div class="invalid-feedback">
+											  Veuillez choisir une adresse.
+										  </div>
+									  </div>
+								  </div>
+								  <div class="col-md-6 mb-6">
+									  <div class="input-group">
+										  <div class="input-group-prepend">
+											  <span class="input-group-text" id="inputGroupPrepend">Date fin</span>
+										  </div>
+										  <input type="date" class="form-control" id="validationCustomUsername" placeholder="" aria-describedby="inputGroupPrepend" required>
+										  <div class="invalid-feedback">
+											  Veuillez choisir une adresse.
+										  </div>
+									  </div>
+								  </div>
+							  </div><br>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlTextarea1">Description du document</label>
+									  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
+								  </div>
+							  </div><br>
+							  <div class="form-row">
+								  <div class="col-md-12 mb-12">
+									  <label for="exampleFormControlFile1">Ajoutez document</label>
+									  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+								  </div>
+							  </div>
+
+							  <div class="modal-footer">
+								  <div class="form-group">
+
+								  </div>
+								  <!-- <button class="btn btn-primary" type="submit">Enregistrer</button> -->
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+									  <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+								  </button></p>
+
+								  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+									  <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+								  </button></p>
+							  </div>
+						</form>
+					  </div>
+
+				  </div>
+			  </div>
+		  </div>
+
+		<!-- <div th:replace="Fragment/EditeModal :: edite"></div> -->
+		  <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+ 
+
+  <!-- Logout Modal-->
+  
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="bootstrap/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+  <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+  
+ 
+</body>
+
+</html>

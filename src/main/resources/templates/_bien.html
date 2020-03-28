@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+		  <meta charset="utf-8">
+		  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+		  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		  <meta name="description" content="">
+		  <meta name="author" content="">
+
+		  <title>SB Admin 2 - Dashboard</title>
+
+		  <!-- Custom fonts for this template-->
+		  <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+		  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+		  <!-- Custom styles for this template-->
+		  <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+
+	 </head>
+
+    <body id="page-top">
+
+  <!-- Page Wrapper -->
+       <div id="wrapper">
+
+    <!-- Sidebar -->
+	         <div th:replace="Fragment/sidebar :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+           <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+			   <div id="content">
+
+        <!-- Topbar -->
+                    <div th:replace="Fragment/topbar :: topbar"></div>
+        <!-- End of Topbar -->
+					<h3 class="text-center">
+						
+						<marquee behavior="alternate" scrollamount="3" th:if="${ste}">
+					             Bienvenue <span th:text="${ste.Nom_societe}"></span>
+					    </marquee>
+					    <marquee behavior="alternate" scrollamount="3" th:unless="${ste}">
+					             Nouvelle Société
+					    </marquee>
+					</h3>
+        <!-- Begin Page Content -->
+                    <div class="container-fluid">
+    	
+        	            <div class="row">
+							 <div class="col-lg-12">
+        			              <div class="card mb-4 py-3 border-bottom-danger">
+        			          
+        				             <div class="section section-tabs">
+										 <div class="container">
+					        <!--                nav tabs	             -->
+					                         <div id="nav-tabs">
+					          <!-- <h3>Navigation Tabs</h3> -->
+					                             <div class="row">
+					                                 <div class="col-md-12">
+														  <h3>
+															<small></small>
+														  </h3>
+														  <div class="row">
+							                                  <div class="col-lg-6">
+							                                <!--   <div th:if="${ste}">
+							                                  </div> -->
+							                                  </div>
+							                                  <div class="col-lg-6">
+							                                  
+							                                  			              <!-- Tabs with icons on Card -->
+					              								 <form th:action="@{/_bien}" method="get" class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+					              								 
+															            <div class="input-group">
+															              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" name="identSociete">
+															              <div class="input-group-append">
+															                <button class="btn btn-danger" type="submit">
+															                  <i class="fas fa-search fa-sm"></i> Rechercher
+															                </button>
+															              </div>
+															            </div>
+															            
+														          </form>
+							                                  
+							                                  </div>
+							                              </div><br>
+			
+														 <div class="card card-nav-tabs">
+														 
+					                                          <div class="card-header card-header-primary">
+					                                          
+					                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+																   <div class="nav-tabs-navigation">
+																  
+					                                                    <div class="nav-tabs-wrapper">
+					                                                        <ul class="nav nav-tabs" data-tabs="tabs">
+																				<li class="nav-item">
+																					 <a class="nav-link active d-none d-sm-inline-block btn btn-sm  shadow-sm " href="#profile" data-toggle="tab" role="button">
+																						 <button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Informations</button>
+																					  </a>
+
+																				</li>
+																				<li class="nav-item ">
+																					  <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#messages" data-toggle="tab" role="button">
+																						<button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm"> Documents</button>
+																					  </a>
+																				</li>
+																				<!--<li class="nav-item">
+																					  <a class="nav-link d-none d-sm-inline-block btn btn-sm  shadow-sm" href="#settings" data-toggle="tab" role="button">
+																						<button  class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm">Settings</button>
+																					  </a>
+																				</li>-->
+																			</ul>
+																		</div>
+																   </div>
+					                                           </div>
+					                                           <!-- ========== card 1 informations générales ========== -->
+															  <div class="card-body ">
+					                                              <div class="tab-content text-center">
+					                                            <!-- ========== page 1 ========== -->
+																	  <div class="tab-pane active" id="profile">
+																			<!-- <div class="col-md-6 mb-6">
+																	      			  		<div class="input-group">
+																								<div class="input-group-prepend">
+																									<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type Bien</span>
+																								</div>
+																								    <select class="custom-select mr-sm-2" name="identifiant">
+																										    <option th:each="p : ${societes}" th:value=${p.identifant} th:text="${p.identifant}"></option>
+																									 </select>
+																									<div class="invalid-feedback">
+																									Please choose a username.
+																								</div>
+																							</div>      
+																						</div> -->
+			
+																		   <!-- debut -->
+																		   <div th:if="${ste}">
+																		   <form th:action=@{/addBien} method="post" class="needs-validation" novalidate>
+																	      <div class="modal-body">
+																	      	
+																	      	<div class="card" >
+																	      		<div class="card-header">
+																	      		<h4>Informations</h4>
+																	      		</div>
+																	      		<div class="body-card">
+																	      			<div class="container"><br>
+																	      			 <div class="form-row">
+																	      			     <div class="col-md-6 mb-6">
+																	      			     <div class="input-group" hidden>
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Country</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername"  aria-describedby="inputGroupPrepend" th:value="${ste.identSociete}" name="identSociete" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une pays .
+																							</div>
+																							</div>
+																	      			     </div>
+																	      			  </div>
+																	      			  <div class="form-row">
+																	      			     <div class="col-md-6 mb-6" hidden>
+																	      			     <div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Country</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername"  aria-describedby="inputGroupPrepend" th:value="${ste.Nom_societe}" name="Nom_societe" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une pays .
+																							</div>
+																							</div>
+																	      			     </div>
+																	      			  </div>
+																	      			 
+																	      			  <div class="form-row">
+																	      			     <div class="col-md-6 mb-6">
+																	      			  		<div class="input-group">
+																								<div class="input-group-prepend">
+																									<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type Bien</span>
+																								</div>
+																								<select class="custom-select mr-sm-2" id="inputEmail5" name="TypeBient">
+																										<option value="Appartement">Appartement</option>
+																										<option value="Studio">Studio</option>
+																										<option value="2">...</option>
+																										<option value="3">...</option>
+																										</select>
+																								<div class="invalid-feedback">
+																									Please choose a username.
+																								</div>
+																							</div>      
+																						</div>
+																						<div class="col-md-6 mb-6">
+																							<div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Identifiant</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Identifiant du bien ..."  aria-describedby="inputGroupPrepend"  name="identBien">
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une pays .
+																							</div>
+																							</div>
+																						</div><br>
+																						<!-- <div class="col-md-6 mb-6">
+																	      			  		<div class="input-group">
+																								<div class="input-group-prepend">
+																									<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type Bien</span>
+																								</div>
+																								    <select class="custom-select mr-sm-2" name="identifiant">
+																										    <option th:each="p : ${societes}" th:value=${p.identifant} th:text="${p.identifant}"></option>
+																									 </select>
+																									<div class="invalid-feedback">
+																									Please choose a username.
+																								</div>
+																							</div>      
+																						</div> -->
+																	      			  </div><br>
+																	      			  
+																	      			  <div class="form-row">
+																						<div class="col-md-6 mb-6">
+																							<div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Country</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Pays..." aria-describedby="inputGroupPrepend" name="Pays" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une pays .
+																							</div>
+																							</div>
+																						</div><br>
+																						<div class="col-md-6 mb-6">
+																						  <div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">City</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Ville..." aria-describedby="inputGroupPrepend" name="Ville" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une ville .
+																							</div>
+																							</div>
+																						</div>
+																					 </div><br>
+																					 
+																					 <div class="form-row">
+																						<div class="col-md-6 mb-6">
+																							<div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Address</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Adresse..." aria-describedby="inputGroupPrepend" name="Adresse" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une adresse .
+																							</div>
+																							</div>
+																						</div><br>
+																						<div class="col-md-6 mb-6">
+																						  <div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Postal code</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Code paostal..." aria-describedby="inputGroupPrepend" name="Code_Postal" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une code .
+																							</div>
+																							</div>
+																						</div>
+																					 </div><br>
+																	      			  
+																	      			  <div class="form-row">
+																						 <div class="col-md-6 mb-6">
+																							<div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Prix bien</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Prix bien..." aria-describedby="inputGroupPrepend" name="Prix_Bien" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une prix .
+																							</div>
+																							</div>
+																						</div><br>
+																						<div class="col-md-6 mb-6">
+																						  <div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Charge</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="Charges..." aria-describedby="inputGroupPrepend" name="Charges" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une charge .
+																							</div>
+																							</div>
+																						</div>
+																					 </div><br>
+																	
+																						<div class="form-row">
+																						 <div class="col-md-6 mb-6">
+																							<div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Frais d'aquisition</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="frais d'aquisition..." aria-describedby="inputGroupPrepend" name="Frais_Acquisition" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une frais .
+																							</div>
+																							</div>
+																						</div><br>
+																						<div class="col-md-6 mb-6">
+																						  <div class="input-group">
+																							<div class="input-group-prepend">
+																								<span class="input-group-text" id="inputGroupPrepend">Taux d'interet</span>
+																							</div>
+																							<input type="text" class="form-control" id="validationCustomUsername" placeholder="taux d'interet..." aria-describedby="inputGroupPrepend" name="Taux_Interet" required>
+																							<div class="invalid-feedback">
+																								Veuillez indiquer une taux .
+																							</div>
+																							</div>
+																						</div>
+																					 </div>
+																					 <div class="form-row" hidden>
+																	      			     <div class="col-md-6 mb-6">
+																	      			  		<div class="input-group">
+																								<div class="input-group-prepend">
+																									<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type Bien</span>
+																								</div>
+																								<select class="custom-select mr-sm-2" id="inputEmail5" name="etatBien">
+																										<option value="Neutre">Neutre</option>
+																										
+																										</select>
+																								<div class="invalid-feedback">
+																									Please choose a username.
+																								</div>
+																							</div>      
+																						</div>
+																					  </div>
+																	              </div><br>
+																	      	 </div>
+																	      	</div>
+																	      	</div>
+																	      <div class="modal-footer">
+																	        <div class="form-group">
+																				 <div class="form-check">
+																				    <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+																					<label class="form-check-label" for="invalidCheck">
+																						        Agree to terms and conditions
+																				   </label>
+																				   <div class="invalid-feedback">
+																						        You must agree before submitting.
+																				 </div>
+																			    </div>
+																			</div>
+																					 <!--  <button class="btn btn-primary" type="submit">Submit form</button> -->
+																	        
+																	        <button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" type="submit">
+																				<i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+																			</button>
+																			<button type="button" class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm " data-dismiss="modal"><i class="fas fa-window-close text-white-50 text-gray-100"></i> Close </button>
+																	       </div>
+																	      </form>
+																	      </div>
+																		  <!--  <!-- fin -->
+																		   <!-- <div class="alert alert-dismissible alert-danger" th:if="${existe}">
+																			  <button type="button" class="close" data-dismiss="alert">&times;</button>
+																			  <strong>Cette Societe existe!</strong> <a href="#" class="alert-link"> veuillez changer 
+																			</div>
+																		   
+																				 -->
+																				<hr>
+																			<!-- 	<div th:if="${exception}">
+																				<div class="alert alert-danger" role="alert" th:text="${exception.message}">
+																				</div>
+																				</div>
+																				<div th:unless="${exception}">
+																					<div class="alert alert-success" role="alert">
+																					superbe!
+																					</div>
+																				</div> -->
+																				<div class="form-row">
+																					 <div class="col-md-8 mb-8" th:if="${exception}">
+																					 <div class="alert alert-danger" role="alert" th:text="${exception.message}">
+			
+																					 </div>
+											                                         </div>
+											                                         <div class="col-md-8 mb-8 " th:unless="${exception}">
+											                                         	<div class="alert alert-success" role="alert" >
+				                                                                          Ajoutez un bien
+																					 </div>
+											                                        </div>
+											                                      <!--   <div class="col-md-8 mb-8 " th:if="${except}">
+											                                         	<div class="alert alert-success" role="alert" th:text="${except.message}">
+				                                                                          Ajoutez un bien
+																					 </div>
+											                                        </div> -->
+																					 <div class="col-md-4 mb-4"><!-- data-toggle="collapse"  data-target="#collapseExample"  aria-expanded="false" aria-controls="collapseExample" -->
+																						  <p>
+																						    <button type="button" class=" d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" data-toggle="modal" data-target="#exampleModal2-modal-lg">
+																						        <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Ajoutez societe
+																					        </button>
+																						  </p>
+																					 </div>
+																					
+																				</div>
+												
+																	  </div>
+					                                             <!-- ========== page 2 ========== -->
+																	  <div class="tab-pane" id="messages">
+
+																		  <div class="card">
+
+																			  <div class="card-header">
+																						 <label for="inputState">Nouveau document</label>
+																			  </div>
+
+																			  <div class="card-body">
+																					<div data-toggle="modal" data-target="#exampleModalCenter">
+																						<p th:if="${ste}"><button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+																							<i class="fas fa-plus-square text-white-50 text-gray-100"></i> Nouveau document
+																						</button></p>
+																					</div>
+																			  </div>
+																		  </div>
+
+																	  </div>
+					                                                        <!-- ========== page 3 ==========
+																	  <div class="tab-pane" id="settings">
+																			  <p>I think that&#x2019;s a responsibility that I have, to push possibilities, to show people, this is the level that things could be at. So when you get something that has the name Kanye West on it, it&#x2019;s supposed to be pushing the furthest possibilities. I will be the leader of a company that ends up being worth billions of dollars, because I got the answers. I understand culture. I am the nucleus.</p>
+																	  </div>
+																	  -->
+							
+																  </div>
+					                                          </div>
+					                                      </div><br>
+					              <!-- End Tabs with icons on Card -->
+					              
+					         <div class="form-row" th:if="${existe}">
+							 <div class="col-md-12 mb-12" >
+								<div class="alert alert-danger" role="alert">		                                              
+									<h6>Cette societe existe déjà!</h6>
+									
+								</div>
+								
+						</div>
+						</div>
+					              
+													  </div>
+												 </div>
+											 </div>
+										 </div>
+									 </div>
+								  </div>
+							 </div>
+	                    	
+	
+		                    <!-- ============================= modal document ============================= -->
+						<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+				    <div class="modal-content">
+				      <div class="modal-header bg-gradient-danger text-gray-100 text-center">
+				        <h5 class="modal-title" id="exampleModalCenterTitle">Nouveau document</h5>
+				        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				          <span aria-hidden="true">&times;</span>
+				        </button>
+				      </div><br>
+				      <div class="container">
+				      <span></span>
+				      <!-- <div class="form-row" th:if="${exception}">
+							 <div class="col-md-12 mb-12" >
+								<div class="alert alert-success" role="alert">		                                              
+									<h6>Vous deviez spécifier le bien avant d'ajouter ses document!</h6>
+									
+								</div>
+								<span th:text="${exceptionB.messages}"></span> th:value="${bien.Id_Bien}"
+						</div>
+						</div> -->
+						</div>
+						<!-- debut <div th:if="${ste}"> -->
+				      <form th:action="@{/addDocument}" method="get" class="needs-validation" novalidate>
+				      
+				      <div class="modal-body"><br>
+				      <div class="col-md-6 mb-6">
+						<div class="input-group">
+							<div class="input-group-prepend">
+								<span class="input-group-text" id="inputGroupPrepend">Country</span>
+							</div>
+							<!-- th:value="${bien.IdBien}"  name="IdBien" -->
+							<input type="text" class="form-control" id="validationCustomUsername"  aria-describedby="inputGroupPrepend"   required>
+							<div class="invalid-feedback">
+								Veuillez indiquer une pays .
+							</div>
+						 </div>
+						</div><br>
+				        <div class="form-row">
+							<div class="col-md-12 mb-12">
+								<div class="input-group">
+									<div class="input-group-prepend">
+										<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type document</span>
+									</div>
+									<select class="custom-select mr-sm-2" id="inputEmail5" name="Type">
+											<option selected>Contrat de bail</option>
+											<option value="Revision du loyer">Revision du loyer</option>
+											<option value="Quittance du loyer">Quittance du loyer</option>
+											<option value="3">...</option>
+											</select>
+									<div class="invalid-feedback">
+										Please choose a username.
+									</div>
+								</div>
+							</div>
+						</div><br>
+						<div class="form-row">
+							<div class="col-md-12 mb-12">
+								<label for="exampleFormControlTextarea1">Description du document</label>
+    							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="Description" required></textarea>
+							</div>
+						</div><br>
+						<div class="form-row">
+							<div class="col-md-12 mb-12">
+							<label for="exampleFormControlFile1">Ajoutez document</label>
+   							 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="url">
+   							 </div>
+						</div>
+						
+						<div class="modal-footer">
+							 <div class="form-group">
+
+										</div>
+										<!-- <button class="btn btn-primary" type="submit">Enregistrer</button> -->
+										<p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+											<i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+										</button></p>
+												 	
+										<p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+											 <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+										</button></p>
+							</div>
+						
+				      </div>
+				      
+					</form>
+					<!--  fin </div> -->
+				    </div>
+				  </div>
+				</div>
+		   		
+		   					<!-- ============================= fin modal document ========================= -->
+      
+				 <div th:replace="Fragment/logoutModal :: modal"></div>
+				 <div th:replace="Fragment/bienModal :: bien"></div>
+	      </div>
+               </div>
+   </div>
+        </div>
+        </div>
+
+        <!-- /.container-fluid -->
+	
+       </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+        <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+      </div>
+    <!-- End of Content Wrapper -->
+
+     </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+      <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+	  <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+	  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+	  <!-- Core plugin JavaScript-->
+	  <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+	  <!-- Custom scripts for all pages-->
+	  <script src="bootstrap/js/sb-admin-2.min.js"></script>
+
+	  <!-- Page level plugins -->
+	  <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+	  <!-- Page level custom scripts -->
+	  <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+	  <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+
+<div th:Replace="Fragment/modal::exmple"></div>
+  
+  
+      <script>
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(function() {
+  'use strict';
+  window.addEventListener('load', function() {
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.getElementsByClassName('needs-validation');
+    // Loop over them and prevent submission
+    var validation = Array.prototype.filter.call(forms, function(form) {
+      form.addEventListener('submit', function(event) {
+        if (form.checkValidity() === false) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+        form.classList.add('was-validated');
+      }, false);
+    });
+  }, false);
+})();
+</script>  		  
+
+     </body>
+
+</html>

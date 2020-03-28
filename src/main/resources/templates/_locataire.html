@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	<div th:replace="Fragment/sidebar :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <div th:replace="Fragment/topbar :: topbar"></div>
+        <!-- End of Topbar -->
+			<h3 class="text-center"><marquee behavior="alternate" scrollamount="3">
+			Nouveau locataire
+			</marquee></h3>
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        	<div class="row">
+        		<div class="col-lg-12">
+        			<div class="card mb-4 py-3 border-bottom-danger">
+	                <div class="card-body">
+							<!-- Garant -->
+							<div class="form-row">
+	                 			<div class="col-md-12 mb-12">
+	                 				<div class="row">
+	                 				<div class="col-lg-6 mb-12">
+	                 				</div>
+	                 				<div class="col-lg-6 mb-12">
+	                 				<button class="d-none d-sm-inline-block btn btn-sm btn-danger shadow-sm" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+									   <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Ajoutez un garant
+									 </button>
+									</div>
+									</div>
+									<div class="collapse" id="collapseExample">
+									
+									  	<div class="card card-body">
+									  	
+									  	<form th:action=@{/addGarant} method="post"  class="needs-validation" novalidate>
+											<div class="card">
+											
+											     <div class="card-header">
+											      <label for="inputState">Information personnelle</label>
+											      </div>
+											      
+											       <div class="card-body">
+											        
+											        <div class="form-row">
+													  <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Nom du garant</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nom..." aria-describedby="inputGroupPrepend" name="nomGarant" required>
+													        <div class="invalid-feedback">
+													          Veuillez choisir nom du garant.
+													        </div>
+													      </div>
+													    </div><br>
+	
+													    <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Identifiant</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Prenom..." aria-describedby="inputGroupPrepend" name="identGarant" required>
+													        <div class="invalid-feedback">
+													          Veuillez choisir un prenom .
+													        </div>
+													      </div>
+													    </div>
+												 </div><br>
+												 
+												 <div class="form-row">
+													  <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Activite</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nom..." aria-describedby="inputGroupPrepend" name="activite" required>
+													        <div class="invalid-feedback">
+													          Veuillez choisir un nom .
+													        </div>
+													      </div>
+													    </div><br>
+	
+													    <div class="col-md-6 mb-6">
+													    
+													     <div class="custom-file">
+															 <input type="file" class="custom-file-input" id="customFileLangHTML" name="document" required="required">
+															<label class="custom-file-label" for="customFileLangHTML" data-browse="Document">Ajouter les doc ...</label>
+														</div>
+    														<!-- <label for="exampleFormControlFile1">Ajoutez document</label>
+							   							 <input type="file" class="form-control-file" id="exampleFormControlFile1" name="url">-->
+													    </div>
+												 </div><br>
+												 <div class="form-row">
+														<div class="col-md-12 mb-12">
+														 <label for="exampleFormControlTextarea1">Description</label>
+    														<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="description" required></textarea>
+							   							 </div>
+												 </div>
+       
+											  </div>
+						
+									       
+											</div>
+											
+											<div class="card">
+											
+											    <div class="card-header">
+											  		<label for="inputState">Adresse Professionelle</label>
+											    </div>
+											    
+											    <div class="card-body">
+											  
+											        <div class="form-row">
+													  <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Pays</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Pays..." aria-describedby="inputGroupPrepend" name="pays" required>
+													        <div class="invalid-feedback">
+													          Veuillez choisir nom du pays.
+													        </div>
+													      </div>
+													    </div><br>
+	
+													    <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Ville</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Ville..." aria-describedby="inputGroupPrepend" name="ville" required>
+													        <div class="invalid-feedback">
+													          Veuillez choisir de la ville .
+													        </div>
+													      </div>
+													    </div>
+												 </div><br>
+								                       
+												   <div class="form-row">
+													  <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Adresse</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Pays..." aria-describedby="inputGroupPrepend" name="adresse" required>
+													        <div class="invalid-feedback">
+													          Votre adresse svp!
+													        </div>
+													      </div>
+													    </div><br>
+	
+													    <div class="col-md-6 mb-6">
+													      <div class="input-group">
+													        <div class="input-group-prepend">
+													          <span class="input-group-text" id="inputGroupPrepend">Code postal</span>
+													        </div>
+													        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Ville..." aria-describedby="inputGroupPrepend" name="codePostal" required>
+													        <div class="invalid-feedback">
+													          Votre code postal!
+													        </div>
+													      </div>
+													    </div>
+												 </div><br>
+											   </div>
+											</div>
+									 	  
+											<div class="modal-footer">
+													 	<div class="form-group">
+													    <div class="form-check">
+													      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+													      <label class="form-check-label" for="invalidCheck">
+													        Accepter les termes et conditions
+													      </label>
+													      <div class="invalid-feedback">
+													        Accepter les termes et conditions
+													      </div>
+													    </div>
+													  </div>
+													  <!-- <button class="btn btn-primary" type="submit">Enregistrer</button> -->
+													  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+													    <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+													  </button></p>
+												 	
+													
+												 	
+												 	<p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+													    <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+													  </button></p>
+												 </div>
+										</form>
+							          </div>
+								   </div>
+	                 				
+	                 			</div>
+	                 			<!-- <div class="col-md-6 mb-6">
+	                 			contenu2
+	                 			</div> -->
+	                 		</div><br>	
+							
+							<!-- Fin garant -->
+	                 		<div class="card">
+							
+								<div class="card-header">
+									<label for="inputState">Informations générales</label>
+								 </div>
+						      
+								 <div class="card-body">
+								     <div class="container">
+								    	
+										 <form th:action=@{/addLocataire} method="post"  class="needs-validation" novalidate>
+											
+												<div class="form-row">
+												
+												  <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Nom</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Nom..." aria-describedby="inputGroupPrepend" name="Nom" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir un nom .
+												        </div>
+												      </div>
+												    </div><br>
+
+												    <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Prenom</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Prenom..." aria-describedby="inputGroupPrepend" name="Prenom" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir un prenom .
+												        </div>
+												      </div>
+												    </div>
+												    
+												 </div><br>
+												 <div class="form-row">
+												
+												  <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Pays</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Pays..." aria-describedby="inputGroupPrepend" name="Pays" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir un nom .
+												        </div>
+												      </div>
+												    </div><br>
+
+												    <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Ville</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Ville..." aria-describedby="inputGroupPrepend" name="Ville" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir un prenom .
+												        </div>
+												      </div>
+												    </div>
+												    
+												 </div><br>
+												<div class="form-row">
+												
+												  <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Adresse</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Adresse..." aria-describedby="inputGroupPrepend" name="Adresse" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir une adresse.
+												        </div>
+												      </div>
+												    </div><br>
+
+												    <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">@mail</span>
+												        </div>
+												        <input type="email" class="form-control" id="validationCustomUsername" placeholder="email..." aria-describedby="inputGroupPrepend" name="Email" required>
+												        <div class="invalid-feedback">
+												          S'il vous plaît fournir une adresse mail valide.
+												        </div>
+												      </div>
+												    </div>
+												    
+												 </div><br>
+												 
+												 <div class="form-row">
+												
+												  <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Téléphone</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Téléphone..." aria-describedby="inputGroupPrepend" name="Telephone" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir un numero telephone.
+												        </div>
+												      </div>
+												    </div><br>
+
+												    <div class="col-md-6 mb-6">
+												      <div class="input-group">
+												        <div class="input-group-prepend">
+												          <span class="input-group-text" id="inputGroupPrepend">Identifiant</span>
+												        </div>
+												        <input type="text" class="form-control" id="validationCustomUsername" placeholder="Votre identifiant..." aria-describedby="inputGroupPrepend" name="identLocataire" required>
+												        <div class="invalid-feedback">
+												          Veuillez choisir l'age.
+												        </div>
+												      </div>
+												    </div>
+												    
+												 </div><br>
+												 
+												 <div class="form-row">
+												  <div class="col-md-6 mb-6">
+														<div class="input-group">
+															<div class="input-group-prepend">
+																<span class="input-group-text" id="inputGroupPrepend" for="validationCustomUsername">Type Bien</span>
+															</div>
+														<select class="custom-select mr-sm-2" name="identGarant">
+																<option th:each="p : ${allGarant}" th:value=${p.identGarant} th:text="${p.identGarant}"></option>
+														</select>
+														<div class="invalid-feedback">
+															Please choose a username.
+														</div>
+													</div>      
+												</div>
+												 </div><br>
+												
+												 	<div class="modal-footer">
+													 	<div class="form-group">
+													    <div class="form-check">
+													      <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+													      <label class="form-check-label" for="invalidCheck">
+													        Accepter les termes et conditions
+													      </label>
+													      <div class="invalid-feedback">
+													        Accepter les termes et conditions
+													      </div>
+													    </div>
+													  </div>
+													  
+													  <p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit">
+													    <i class="fas fa-plus-square text-white-50 text-gray-100"></i> Entregistrer
+													  </button></p>
+												 	
+													
+												 	
+												 	<p><button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="reset">
+													    <i class="fas fa-window-close text-white-50 text-gray-100"></i> Annuler
+													  </button></p>
+												 </div>
+					
+												 
+											</form>
+ 										
+							          </div>
+							         
+						          </div>
+						     
+							</div><br>	
+	                 <!-- fin card -->
+	                 		
+	                 		
+	                 
+	                  <div th:replace="Fragment/logoutModal :: modal"></div>
+	                </div>
+              </div>
+        		</div>
+        	</div>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="bootstrap/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+  <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+  
+  
+  <script>
+	// Example starter JavaScript for disabling form submissions if there are invalid fields
+	(function() {
+	  'use strict';
+	  window.addEventListener('load', function() {
+	    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+	    var forms = document.getElementsByClassName('needs-validation');
+	    // Loop over them and prevent submission
+	    var validation = Array.prototype.filter.call(forms, function(form) {
+	      form.addEventListener('submit', function(event) {
+	        if (form.checkValidity() === false) {
+	          event.preventDefault();
+	          event.stopPropagation();
+	        }
+	        form.classList.add('was-validated');
+	      }, false);
+	    });
+	  }, false);
+	})();
+</script>
+
+</body>
+
+</html>

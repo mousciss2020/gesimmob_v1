@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>SB Admin 2 - Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="bootstrap/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="bootstrap/css/sb-admin-2.min.css" rel="stylesheet">
+  
+  <!-- ======================== -->
+  <link rel="apple-touch-icon" sizes="76x76" href="./asset/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="./asset/img/favicon.png">
+  
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files 
+  <link href="./asset/css/material-kit.css?v=2.0.5" rel="stylesheet" />-->
+  <!-- CSS Just for demo purpose, don't include it in your project 
+  <link href="./asset/demo/demo.css" rel="stylesheet" />
+
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+	<div th:replace="Fragment/sidebar :: sidebar"></div>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <div th:replace="Fragment/topbar :: topbar"></div>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+        	<div class="row">
+        		<div class="col-lg-12">
+        			<div class="card mb-4 py-3 border-bottom-danger">
+	                <div class="card-body">
+	<!-- debut -->                
+	<div class="section section-tabs">
+      <div class="container">
+        <!--                nav tabs	             -->
+        <div id="nav-tabs">
+          <!-- <h3>Navigation Tabs</h3> -->
+          <div class="row">
+            <div class="col-md-12">
+              <h3>
+                <small></small>
+              </h3>
+              <!-- Tabs with icons on Card -->
+              <div class="card card-nav-tabs">
+                <div class="card-header card-header-primary">
+                  <!-- colors: "header-primary", "header-info", "header-success", "header-warning", "header-danger" -->
+                  <div class="nav-tabs-navigation">
+                    <div class="nav-tabs-wrapper">
+                     <h3 class="text-center">Edition de bien</h3>
+                    </div>
+                  </div>
+                </div>
+                <div class="card-body ">
+                  
+                  <!--=============== formulaire =================-->
+                  
+                  	<form th:action="@{/saveLoc}" method="post" th:object="${bien}">
+                  	
+					  <div class="form-row">
+					    <div class="form-group col-md-6" hidden>
+					      <label for="TypeBient">Type bien</label>
+					      <input type="text" class="form-control" th:field="*{TypeBient}" id="TypeBient"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('TypeBient')}"  th:errors="*{TypeBient}"></div>
+					    </div>
+					    <div class="form-group col-md-6" hidden>
+					      <label for="identBien">Identifiant</label>
+					      <input type="text" class="form-control" placeholder="Votre identifiant..." th:field="*{identBien}" id="TypeBient"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('identBien')}" th:errors="*{identBien}"></div>
+					    </div>
+					  </div>
+					  
+					  <div class="form-row">
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Adresse">Adresse</label>
+					      <input type="text" class="form-control" placeholder="Votre adresse..." th:field="*{Adresse}" id="Adresse"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Adresse')}" th:errors="*{Adresse}"></div>
+					    </div>
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Ville">Ville</label>
+					      <input type="text" class="form-control"  placeholder="Votre votre..." th:field="*{Ville}" id="Ville"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Ville')}" th:errors="*{Ville}"></div>
+					    </div>
+					  </div>
+					  
+					  <div class="form-row">
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Code_Postal">Code postal</label>
+					      <input type="text" class="form-control"  placeholder="Votre code paostal..." th:field="*{Code_Postal}" id="Code_Postal"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Code_Postal')}" th:errors="*{Code_Postal}"></div>
+					    </div>
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Pays">Pays</label>
+					      <input type="text" class="form-control" placeholder="Votre pays..." th:field="*{Pays}" id="Pays"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Pays')}" th:errors="*{Pays}"></div>
+					    </div>
+					  </div>
+					  
+					  <div class="form-row">
+					     <div class="form-group col-md-6" hidden>
+					      <label for="Frais_Acquisition">Frais Acquisition</label>
+					      <input type="text" class="form-control" placeholder="Frais acquisition..." th:field="*{Frais_Acquisition}" id="Frais_Acquisition"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Frais_Acquisition')}" th:errors="*{Frais_Acquisition}"></div>
+					    </div>
+					    <div class="form-group col-md-6" hidden>
+					      <label for="identBien">Prix</label>
+					      <input type="text" class="form-control"  placeholder="Loyer..." th:field="*{Prix_Bien}" id="Prix_Bien"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('identBien')}" th:errors="*{Prix_Bien}"></div>
+					    </div>
+					  </div>
+					  
+					  <div class="form-row">
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Charges">Charges</label>
+					      <input type="text" class="form-control"  placeholder="Charges..." th:field="*{Charges}" id="Charges"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Charges')}" th:errors="*{Charges}"></div>
+					    </div>
+					    <div class="form-group col-md-6" hidden>
+					      <label for="Taux_Interet">Taux Interet</label>
+					      <input type="text" class="form-control"  placeholder="Taux..." th:field="*{Taux_Interet}" id="Taux_Interet"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('Taux_Interet')}" th:errors="*{Taux_Interet}"></div>
+					    </div>
+					  </div>
+					  <div class="form-row" >
+					    <div class="form-group col-md-6" hidden>
+					      <label for="IdBien">Id Bien</label>
+					      <input type="text" class="form-control"  placeholder="Frais acquisition..." th:field="*{IdBien}"  id="IdBien"/>
+					     <div class="text text-danger" th:if="${#fields.hasErrors('IdBien')}" th:errors="*{IdBien}"></div>
+					    </div>
+					    <!-- <div class="form-group col-md-6">
+					      <label for="etatBien">Etat</label>
+					      <input type="text" class="form-control"  placeholder="Etat du bien..." th:field="*{etatBien}" id="etatBien"/>
+					      <div class="text text-danger" th:if="${#fields.hasErrors('etatBien')}" th:errors="*{etatBien}"></div>
+					    </div>
+					     -->
+					     <div class="form-group col-md-6">
+						      <label for="inputState">Locataire</label>
+						      <select name="etatBien" id="inputState" class="form-control">
+						        <option  th:value="Neutre" th:text="Neutre"></option>
+						        <option  th:value="Reservation" th:text="Reservation"></option>
+						        <option  th:value="Loué" th:text="Location"></option>
+			
+						      </select>
+						    </div>
+						    
+					  </div>
+					  <div class="form-row" >
+					    <div class="form-group col-md-6" hidden>
+					      <label for="IdBien">Id Bien</label>
+					      <input type="text" class="form-control"  placeholder="Frais acquisition..." th:field="*{identSociete}"  id="identSociete"/>
+					     <div class="text text-danger" th:if="${#fields.hasErrors('identSociete')}" th:errors="*{identSociete}"></div>
+					    </div>
+					  </div>
+					  
+					  <div class="form-group">
+					    <div class="form-check">
+					      <input class="form-check-input" type="checkbox" id="gridCheck">
+					      <label class="form-check-label" for="gridCheck">
+					        Check me out
+					      </label>
+					    </div>
+					  </div>
+					  <button type="submit" class="btn btn-primary">Enregistrer</button>
+					</form>
+                  	
+                  <!-- ============== fin ======================= -->
+                  
+                </div>
+              </div>
+              <!-- End Tabs with icons on Card -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+	                  
+	                  <div th:replace="Fragment/logoutModal :: modal"></div>
+	                </div>
+              </div>
+        		</div>
+        	</div>
+        </div>
+
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-danger" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-danger" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="bootstrap/vendor/jquery/jquery.min.js"></script>
+  <script src="bootstrap/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="bootstrap/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="bootstrap/js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="bootstrap/vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="bootstrap/js/demo/chart-area-demo.js"></script>
+  <script src="bootstrap/js/demo/chart-pie-demo.js"></script>
+  
+ 
+</body>
+
+</html>
